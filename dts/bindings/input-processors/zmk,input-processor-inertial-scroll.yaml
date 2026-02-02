@@ -5,46 +5,30 @@ description: Inertial Scroll Input Processor - Adds momentum-based scrolling
 
 compatible: "zmk,input-processor-inertial-scroll"
 
-properties:
-  "#input-processor-cells":
-    type: int
-    const: 0
-    description: "Number of cells in input processor specifier"
+include: ip_zero_param.yaml
 
+properties:
   friction:
     type: int
     default: 15
-    description: |
-      Friction coefficient (1-100). Higher values cause faster deceleration.
-      - 5-10: Very smooth, long glide
-      - 15-25: Natural feel (default: 15)
-      - 30-50: Quick stop
-      - 50+: Almost no inertia
+    description: Base friction coefficient (1-100)
 
   min-velocity:
     type: int
     default: 50
-    description: |
-      Minimum velocity required to trigger inertial scrolling.
-      Lower values make it easier to trigger inertia.
+    description: Minimum velocity to trigger inertia
 
   max-velocity:
     type: int
     default: 2000
-    description: |
-      Maximum velocity cap for inertial scrolling.
-      Prevents extremely fast scrolling.
+    description: Maximum velocity cap
 
   max-duration-ms:
     type: int
     default: 1500
-    description: |
-      Maximum duration of inertial scrolling in milliseconds.
-      Inertia will stop after this time even if velocity > 0.
+    description: Maximum inertia duration in ms
 
   velocity-scale:
     type: int
     default: 100
-    description: |
-      Scale factor for velocity calculation (percentage).
-      100 = normal, 150 = 1.5x more inertia, 50 = half inertia.
+    description: Velocity scale factor (percentage)
