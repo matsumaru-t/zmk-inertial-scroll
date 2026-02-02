@@ -1,0 +1,13 @@
+config ZMK_INPUT_PROCESSOR_INERTIAL_SCROLL
+    bool "Enable inertial scroll input processor"
+    default y
+    help
+      Enable the inertial scroll input processor that adds momentum-based
+      scrolling similar to touchpad or smartphone scrolling.
+
+config ZMK_INERTIAL_SCROLL_TICK_MS
+    int "Inertial scroll tick interval in milliseconds"
+    default 16
+    help
+      The interval between inertial scroll updates. Lower values give
+      smoother scrolling but use more CPU.
